@@ -1,8 +1,10 @@
 body {
     font-size: 18px;
     line-height: 135%;
-    display: grid;
-    row-gap: 180px;
+}
+
+main > * {
+    margin-bottom: 180px;
 }
 
 h3 {
@@ -145,10 +147,10 @@ address {
 }
 
 .cover__description__text-decoration {
-    color: #fff;
-    text-align: center;
     font-family: Raleway;
     font-size: 22px;
+    color: #fff;
+    text-align: center;
     line-height: normal;
     text-transform: uppercase;
 }
