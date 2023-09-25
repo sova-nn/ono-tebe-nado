@@ -3,7 +3,6 @@ body {
     line-height: 135%;
     display: grid;
     row-gap: 180px;
-    padding-bottom: 90px;
 }
 
 h3 {
@@ -193,10 +192,6 @@ address {
     z-index: 2;
 }
 
-.card-link {
-    height: 100%;
-}
-
 .card_type_film {
     background-image: url(../images/card-lot-01.jpg);
     background-size: cover;
@@ -226,6 +221,7 @@ address {
 
 .card-link {
     display: block;
+    height: 100%;
 }
 
 .lots__look-more-link, .lots__look-more-link:link {
@@ -277,6 +273,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0 50px;
+    padding-bottom: 90px;
 }
 
 .footer__link:hover {
