@@ -7,6 +7,12 @@ main > * {
     margin-bottom: 180px;
 }
 
+h2 {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 h3 {
     font-size: 40px;
     font-weight: 700;
@@ -97,8 +103,8 @@ address {
     display: block;
 }
 
-.aligned-text {
-    margin-right: -30px;
+.cover__wrapper > h1 > span:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 .aligned-text_center {
@@ -108,11 +114,10 @@ address {
 
 .aligned-text_right {
     text-align: end;
-    margin-right: -30px;
 }
 
 .letter-spacing-extended {
-    letter-spacing: 30px;
+    letter-spacing: 5px;
 }
 
 .letter-spacing-extended::before {
@@ -245,6 +250,8 @@ address {
 .about__logo {
     width: 430px;
     height: 240px;
+    display: flex;
+    justify-content: center;
 }
 
 .about__logo img {
