@@ -13,23 +13,17 @@ h2 {
     text-transform: uppercase;
 }
 
-h3 {
-    font-size: 40px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
 .text {
     font-size: 20px;
     line-height: normal;
 }
 
+
 /* шапка сайта */
 .header {
     display: grid;
-    height: 110px;
-    margin: 92px 50px;
-    grid-template-columns: repeat(3, 1fr);
+    margin: 92px 50px 98px 50px;
+    grid-template-columns: 3fr 1fr 3fr;
     align-items: center;
 }
 
@@ -38,11 +32,22 @@ h3 {
     width: 148px;
     height: 105px;
     justify-self: center;
+    /* добавила наугад, в макете этих значений нет */
+    padding: 0 5px;
 }
 
-.header__link:hover {
-    text-decoration: underline;
+.header__link > a {
     cursor: pointer;
+    text-decoration: none;
+    border-bottom: #000 1px solid;
+}
+
+.header__link.active-link > a {
+    border-bottom: none;
+}
+
+.no-marker {
+    list-style-type: none;
 }
 
 .header__links-list {
@@ -55,7 +60,7 @@ h3 {
 .header__address {
     display: flex;
     flex-direction: column;
-    width: 240px;
+    max-width: 240px;
     justify-self: end;
 }
 
@@ -65,9 +70,9 @@ address {
 
 /* cover */
 .cover {
-    background-image: url(../images/cover.jpg) ;
+    background-image: url(../images/cover.jpg);
+    background-position: center;
     background-size: cover;
-    height: 757px;
     position: relative;
 }
 
@@ -78,9 +83,10 @@ address {
     z-index: 1;
     opacity: 0.6;
     background-color: black;
+    inset: 0;
 }
 
-.cover__wrapper {
+.cover__item {
     padding: 165px 50px 50px 50px;
     color: #fff;
     position: relative;
@@ -89,30 +95,33 @@ address {
 
     display: grid;
     grid-template-rows: 1fr auto;
+    grid-row-gap: 135px;
     height: 100%;
 }
 
-.cover__wrapper > h1 {
+.cover__item > h1 {
     font-size: 100px;
     font-weight: 700;
-    line-height: 115%;
+    /* в макете указано line-height 100%, но иначе не сходится с макетом */
+    /* при этом значении на разрешении 1440px высота блока совпадает с высотой макета 757px */
+    line-height: 105%;
     letter-spacing: 30px;
 }
 
-.cover__wrapper > h1 > span {
+.cover__item > h1 > span {
     display: block;
 }
 
-.cover__wrapper > h1 > span:not(:last-child) {
+.cover__item > h1 > span:not(:last-child) {
     margin-bottom: 20px;
 }
 
-.aligned-text_center {
+.aligned-text-center {
+    margin-right: 30px;
     text-align: center;
-    margin-right: -60px;
 }
 
-.aligned-text_right {
+.aligned-text-right {
     text-align: end;
 }
 
@@ -129,18 +138,18 @@ address {
 }
 
 .cover__description {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: "none text button";
+    display: flex;
+    column-gap: 78px;
+    justify-content: end;
 }
 
-.cover__description__text {
+.cover__description-text {
     grid-area: text;
     align-self: center;
     word-spacing: 20px;
 }
 
-.cover__description__button {
+.cover__description-button {
     grid-area: button;
     text-transform: uppercase;
     height: 52px;
@@ -151,8 +160,8 @@ address {
     justify-self: end;
 }
 
-.cover__description__text-decoration {
-    font-family: Raleway;
+.cover__description-text-decoration {
+    font-family: Raleway, Arial, Helvetica, sans-serif;
     font-size: 22px;
     color: #fff;
     text-align: center;
@@ -219,10 +228,14 @@ address {
     line-height: 120%;
     text-decoration-line: underline;
     text-transform: uppercase;
+    position: relative;
+    z-index: 3;
 }
 
 .card__text {
     line-height: 120%;
+    position: relative;
+    z-index: 3;
 }
 
 .card-link {
@@ -232,8 +245,8 @@ address {
 
 .lots__look-more-link {
     text-transform: lowercase;
-    text-decoration: none;
     margin-left: 40px;
+    max-width: fit-content;
 }
 
 .lots__look-more-link:hover {
@@ -243,15 +256,25 @@ address {
 /* блок about */
 .about {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 430px auto;
+    column-gap: 25px;
     padding: 0 50px;
 }
 
-.about__logo {
-    width: 430px;
-    height: 240px;
+.about__column-logo {
     display: flex;
     justify-content: center;
+}
+
+.about__logo {
+    width: 240px;
+    height: 240px;
+    padding: 48px;
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    border-radius: 50%;
+    
 }
 
 .about__logo img {
@@ -259,19 +282,11 @@ address {
     height: 100%;
 }
 
-.about__logo__circle {
-    background-color: #000;
-    border-radius: 50%;
-    width: 240px;
-    height: 240px;
-    padding: 48px;
-}
-
 .about__title {
     margin: 100px 0;
 }
 
-.about__description > p:not(first-child) {
+.about__text > p:first-child {
     margin-bottom: 25px;
 }
 
@@ -284,15 +299,21 @@ footer {
     padding-bottom: 90px;
 }
 
-.footer__link:hover {
-    text-decoration: underline;
+.footer__link > a {
     cursor: pointer;
+    text-decoration: none;
+    border-bottom: #000 1px solid;
+    line-height: 100%;
+}
+
+.footer__link.active-link > a {
+    border-bottom: none;
 }
 
 .footer__address {
     display: flex;
     flex-direction: column;
-    width: 240px;
+    max-width: 240px;
 }
 
 .footer__links-list {
@@ -304,15 +325,10 @@ footer {
 
 .footer__social-list {
     list-style: none;
-    width: 240px;
+    display: flex;
     flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer__social-list__wrapper {
-    display: flex;
     justify-content: end;
+    gap: 50px;
 }
 
 .footer__social-list-item {
